@@ -1,65 +1,87 @@
-# Tarefa 02 — Classificação de Imagens Territoriais com CNN
+# Tarefa 02 — Classificação de Imagens Territoriais com CNNs
 
 Atividade prática da disciplina **Arquiteturas de Deep Learning** — PUC Minas.
 
-## Objetivo
+![Classificação de Imagens Territoriais](classificacao_imagens_territoriais.png)
 
-Treinar **Redes Neurais Convolucionais (CNN)** para classificar imagens de cenas naturais e urbanas em seis categorias, comparando uma CNN simples com uma CNN regularizada (Batch Normalization + Dropout).
+---
+
+## Contexto de Negócio
+
+Uma empresa que atua com monitoramento territorial, logística, infraestrutura e planejamento urbano recebe imagens de diferentes ambientes capturadas por drones, satélites ou câmeras em campo.
+
+A empresa deseja automatizar a triagem dessas imagens para apoiar decisões como:
+
+- identificar áreas urbanizadas
+- mapear regiões naturais
+- apoiar planejamento de rotas
+- classificar imagens para relatórios ambientais
+- priorizar inspeções em regiões específicas
+
+Neste desafio, construiremos uma **CNN** para classificar imagens em diferentes categorias visuais.
+
+---
 
 ## Dataset
 
-**Intel Image Classification** — disponível no Kaggle.
+**Intel Image Classification** — disponível no Kaggle:  
+https://www.kaggle.com/datasets/puneet6060/intel-image-classification
+
+Classes do dataset:
+
+- `buildings`
+- `forest`
+- `glacier`
+- `mountain`
+- `sea`
+- `street`
 
 | Campo | Detalhe |
 |:------|:--------|
-| Classes | `buildings`, `forest`, `glacier`, `mountain`, `sea`, `street` |
 | Imagens de treino | 14.034 |
 | Imagens de teste | 3.000 |
 | Imagens para predição | 7.301 (sem rótulo) |
-| Fonte | [Kaggle — Intel Image Classification](https://www.kaggle.com/datasets/puneet6060/intel-image-classification) |
 
-> **O dataset de imagens não está incluído neste repositório por ser muito grande (~370 MB).**  
-> Faça o download no link acima e extraia as pastas na estrutura abaixo antes de rodar o notebook.
+> **O dataset de imagens não está incluído neste repositório (~370 MB).**  
+> Faça o download no link acima e extraia na estrutura abaixo antes de rodar o notebook.
 
 ### Estrutura esperada do dataset
 
 ```
 Tarefa_02/
-├── seg_train/
-│   └── seg_train/
-│       ├── buildings/
-│       ├── forest/
-│       ├── glacier/
-│       ├── mountain/
-│       ├── sea/
-│       └── street/
-├── seg_test/
-│   └── seg_test/
-│       └── (mesmas 6 classes)
-├── seg_pred/
-│   └── seg_pred/
-│       └── (imagens sem rótulo)
+├── seg_train/seg_train/
+│   ├── buildings/ │ forest/ │ glacier/ │ mountain/ │ sea/ │ street/
+├── seg_test/seg_test/
+│   └── (mesmas 6 classes)
+├── seg_pred/seg_pred/
+│   └── (imagens sem rótulo)
 ├── classificacao_imagens_territoriais_cnn.ipynb
 └── README.md
 ```
+
+---
+
+## Objetivo Técnico
+
+Construir e comparar dois modelos:
+
+1. **CNN simples** — sem regularização explícita
+2. **CNN regularizada** — usando:
+   - Batch Normalization
+   - Dropout
+
+---
 
 ## Conteúdo
 
 ```
 Tarefa_02/
-├── classificacao_imagens_territoriais_cnn.ipynb  # Notebook principal
+├── classificacao_imagens_territoriais_cnn.ipynb     # Notebook principal
+├── classificacao_imagens_territoriais.png           # Imagem de capa
 └── README.md
 ```
 
-## O que é abordado no notebook
-
-- Carregamento e visualização das imagens com TensorFlow/Keras
-- Data augmentation para ampliar o dataset de treino
-- Construção de uma **CNN simples** (baseline)
-- Construção de uma **CNN regularizada** (Batch Normalization + Dropout)
-- Comparação de desempenho entre os dois modelos
-- Matriz de confusão e relatório de classificação por classe
-- Predição em imagens novas (sem rótulo)
+---
 
 ## Como executar
 
