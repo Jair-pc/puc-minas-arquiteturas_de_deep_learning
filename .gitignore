@@ -1,0 +1,32 @@
+# Materiais de aula (não fazem parte das entregas)
+*.html
+*.pdf
+*.stackdump
+
+# Notas internas
+Claude.md
+claude.md
+AGENTS.md
+
+# Dataset de imagens Tarefa_02 (muito grande para o repositório)
+Tarefa_02/seg_train/
+Tarefa_02/seg_test/
+Tarefa_02/seg_pred/
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Modelos treinados gerados localmente
+qwen_ft_atendimento/
+
+# Sistema
+.DS_Store
+Thumbs.db
